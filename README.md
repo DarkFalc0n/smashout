@@ -11,9 +11,10 @@ An HTML5 game created using Phaser3. A clone of the popular arcade game [Breakou
 
 
 ## [Phaser v3.55.2](https://phaser.io/)
-A fast, free and fun HTML5 Game Framework for Desktop and Mobile web browsers.<br></br>
-<p align="center"><img src="https://phaser.io/images/github/300/phaser-header.png"></img></p>
 
+![image](https://user-images.githubusercontent.com/59203815/219943402-4ecffa87-26c3-45e4-8026-b72b8251d7cd.png)
+
+#### A fast, free and fun HTML5 Game Framework for Desktop and Mobile web browsers.<br></br>
 - Read the complete Phaser3 docs [here](https://photonstorm.github.io/phaser3-docs/index.html)
 - Additional [Phaser3 tutorials](https://www.youtube.com/playlist?list=PLDyH9Tk5ZdFzEu_izyqgPFtHJJXkc79no)
 
