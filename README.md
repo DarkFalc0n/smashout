@@ -1,49 +1,48 @@
-# Phaser 3 Webpack Project Template
+# Smashout
+![](https://camo.githubusercontent.com/264c442bebb8963501ac2922cb5f2fb13cbd5f6b37185de5e352233e773484db/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f53544152253230544849532d5245504f5349544f52592d6379616e3f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562)
+![](https://camo.githubusercontent.com/ce98a71a9faff159f0f00537dd08693cea68ca1d891f91c7e9021b8191d02fae/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f48544d4c352d4533344632362e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d48544d4c35266c6f676f436f6c6f723d7768697465)
+![](https://camo.githubusercontent.com/a2042e7183b80291f7a9b360ee5b0390cc7bb4ee163e0304d43659a5000ecba0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a6176615363726970742d4637444631452e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d4a617661536372697074266c6f676f436f6c6f723d626c61636b)
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/) that includes hot-reloading for development and production-ready builds.
+![](https://img.shields.io/github/issues/darkfalc0n/smashout?color=blueviolet&style=for-the-badge)
+![](https://img.shields.io/github/issues-pr-closed/darkfalc0n/smashout?style=for-the-badge)
 
-This has been updated for Phaser 3.50.0 version and above.
+An HTML5 game created using Phaser3. A clone of the popular arcade game [Breakout](https://en.wikipedia.org/wiki/Breakout_(video_game)).
 
-Loading images via JavaScript module `import` is also supported, although not recommended.
 
-## Requirements
 
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+## [Phaser v3.55.2](https://phaser.io/)
+A fast, free and fun HTML5 Game Framework for Desktop and Mobile web browsers.<br></br>
+<p align="center"><img src="https://phaser.io/images/github/300/phaser-header.png"></img></p>
 
-## Available Commands
+- Read the complete Phaser3 docs [here](https://photonstorm.github.io/phaser3-docs/index.html)
+- Additional [Phaser3 tutorials](https://www.youtube.com/playlist?list=PLDyH9Tk5ZdFzEu_izyqgPFtHJJXkc79no)
 
-| Command | Description |
-|---------|-------------|
-| `npm install` | Install project dependencies |
-| `npm start` | Build project and open web server running project |
-| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+## Setting up
+1. Fork this repository.
+2. Clone the forked repository locally.
+```
+git clone https://github.com/<YOUR_USERNAME>/smashout
+```
+3. Navigate to the project directory and install the dependencies
+```
+npm i
+```
+4. Start local development server
+```
+npm start 
+```
+## Contributing
+1. Set up the project in your local device.
+2. Find a relevant issue to work upon or raise one.
+3. Upon being assigned, create a new branch with a relevant name.
+4. Make sure to commit and push your changes to the forked repository.
+```
+git add .
+git commit -m "COMMIT_MESSAGE"
+git push
+```
+5. Make a pull request with proper description and wait for it to get merged.
 
-## Writing Code
 
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development server by running `npm start`.
 
-After starting the development server with `npm start`, you can edit any files in the `src` folder and webpack will automatically recompile and reload your server (available at `http://localhost:8080` by default).
 
-## Customizing the Template
-
-### Babel
-
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
-
- ```
-"browsers": [
-  ">0.25%",
-  "not ie 11",
-  "not op_mini all"
-]
- ```
-
-### Webpack
-
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json'.
-
-## Deploying Code
-
-After you run the `npm run build` command, your code will be built into a single bundle located at `dist/bundle.min.js` along with any other assets you project depended. 
-
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), you should be able to open `http://mycoolserver.com/index.html` and play your game.
