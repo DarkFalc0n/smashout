@@ -3,6 +3,7 @@ import ballSprite from "../assets/ball.png";
 import baseSprite from "../assets/base.png";
 import bgImage from "../assets/bg.png";
 import brickSprite from "../assets/brick.png";
+import Swal from "sweetalert2";
 
 class Main extends Phaser.Scene {
     constructor() {
@@ -28,6 +29,7 @@ class Main extends Phaser.Scene {
         this.physics.world.on('worldbounds', (body, up, down, left, right) => {
             if (down) {
                 this.gameOver();
+                this.retry();
             }
         });
         this.generateBricks();
@@ -83,6 +85,10 @@ class Main extends Phaser.Scene {
         this.base.setVelocity(dir * velocity, 0);
     }
 
+    stopBall() {
+        this.ball.setVelocity(0,500);
+        this.ball.setBounce(0);
+    }
     stopBase() {
         this.base.setVelocity(0, 0);
     }
@@ -108,10 +114,31 @@ class Main extends Phaser.Scene {
         }
     }
 
+    retry(){
+        Swal.fire({
+            title: 'YOU LOST!!',
+            text: "Do you want to retry??",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                this.create();
+            } else {
+                Swal.fire(
+                    'Thank you for Playing!',
+                )
+            }
+          })
+    }
 
     gameOver() {
         console.log("Game Over");
         //Define gameOver logic
+        this.ball.setPosition(350);
+        this.stopBall();
     }
 
 }
