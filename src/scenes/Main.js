@@ -24,8 +24,8 @@ class Main extends Phaser.Scene {
         this.keyControls = this.input.keyboard.createCursorKeys();
         // //collision between the ball and the base
         this.brickGroup = this.add.group();
-        this.physics.add.collider(this.ball, this.base);
-        this.physics.add.collider(this.ball, this.brickGroup);
+        // this.physics.add.collider(this.ball, this.base);
+        // this.physics.add.collider(this.ball, this.brickGroup,this.ballhitbrick);
         this.physics.world.on('worldbounds', (body, up, down, left, right) => {
             if (down) {
                 this.gameOver();
@@ -37,8 +37,16 @@ class Main extends Phaser.Scene {
 
     update() {
         this.movementManager();
+        this.physics.add.collider(this.ball, this.base,this.ballhitbase);
+        this.physics.add.collider(this.ball, this.brickGroup,this.ballhitbrick);
     }
-
+    ballhitbase(){
+        console.log("hitbase");
+    }
+    ballhitbrick(ball,brick){
+        console.log("hitbrick");
+         brick.destroy();
+    }
     generateBricks() {
         this.brickGroup.enableBody = true;
         this.brickGroup.physicsBodyType = Phaser.Physics.Arcade;
@@ -57,6 +65,7 @@ class Main extends Phaser.Scene {
             }
         }
     }
+
     placeBase() {
         const base = this.physics.add.image(400 - 50, 500, "base");
         base.setBounce(1)
