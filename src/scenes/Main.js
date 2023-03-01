@@ -49,10 +49,11 @@ class Main extends Phaser.Scene {
     ballhitbrick(ball,brick){
         console.log("hitbrick");
          brick.destroy();
-         this.score += 1;
+         this.score+=1;
          if(this.scoreText) {
-             this.scoreText.setText('Score: ' + this.score);
-         }
+            this.scoreText.setText('Score: ' + this.score);
+        }
+
     }
     generateBricks() {
         this.brickGroup.enableBody = true;
