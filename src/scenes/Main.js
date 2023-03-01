@@ -8,6 +8,8 @@ import Swal from "sweetalert2";
 class Main extends Phaser.Scene {
     constructor() {
         super("Main");
+        this.score=0;
+        this.scoreText=null;  
     }
 
     preload() {
@@ -22,6 +24,7 @@ class Main extends Phaser.Scene {
         this.ball = this.placeBall();
         this.base = this.placeBase();
         this.keyControls = this.input.keyboard.createCursorKeys();
+        this.scoreText=this.add.text(5,0,'Score: '+this.score, {font:'800 18px Poppins' ,fill:'#00000'});
         // //collision between the ball and the base
         this.brickGroup = this.add.group();
         // this.physics.add.collider(this.ball, this.base);
@@ -38,7 +41,7 @@ class Main extends Phaser.Scene {
     update() {
         this.movementManager();
         this.physics.add.collider(this.ball, this.base,this.ballhitbase);
-        this.physics.add.collider(this.ball, this.brickGroup,this.ballhitbrick);
+        this.physics.add.collider(this.ball, this.brickGroup,this.ballhitbrick,null,this);
     }
     ballhitbase(){
         console.log("hitbase");
@@ -46,6 +49,11 @@ class Main extends Phaser.Scene {
     ballhitbrick(ball,brick){
         console.log("hitbrick");
          brick.destroy();
+         this.score+=1;
+         if(this.scoreText) {
+            this.scoreText.setText('Score: ' + this.score);
+        }
+
     }
     generateBricks() {
         this.brickGroup.enableBody = true;
