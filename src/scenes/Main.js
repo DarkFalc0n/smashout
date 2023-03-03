@@ -84,12 +84,12 @@ class Main extends Phaser.Scene {
     }
 
     placeBall() {
-        const ball = this.physics.add.image(200, 200, "ball");
-        ball.setVelocity(250, 550)//initial velocity
+        const ball = this.physics.add.image(400 - 50, 450, "ball");
+        ball.setVelocity(0,0)//initial velocity
             .setCollideWorldBounds(true)
             //sets bounds smaller than the canvas for the border
             .body.setBoundsRectangle(new Phaser.Geom.Rectangle(20, 20, 760, 560))
-            .setBounce(1); //fully elastic behaviour
+            .setBounce(0); //fully elastic behaviour
         ball.setScale(0.6);
         ball.body.onWorldBounds = true;
         return ball;
@@ -102,15 +102,25 @@ class Main extends Phaser.Scene {
         this.base.setVelocity(dir * velocity, 0);
     }
 
+    moveBall(){
+        this.ball.setVelocity(250,450);
+        
+    }
+
     stopBall() {
         this.ball.setVelocity(0,500);
         this.ball.setBounce(0);
     }
+
     stopBase() {
         this.base.setVelocity(0, 0);
     }
 
     movementManager() {
+        if(this.keyControls.space.isDown===true){
+            this.ball.setBounce(1);
+            this.moveBall();
+        }
         if (this.keyControls.left.isDown === true && this.keyControls.right.isDown === true) {
             this.stopBase();
             return;
